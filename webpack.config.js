@@ -65,6 +65,9 @@ module.exports = async (env, options) => {
       },      
       https: (options.https !== undefined) ? options.https : await devCerts.getHttpsServerOptions(),
       port: process.env.npm_package_config_dev_server_port || 3000
+    },
+    output: {
+      path: __dirname + '/docs'
     }
   };
 
