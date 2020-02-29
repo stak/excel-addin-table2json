@@ -57,7 +57,20 @@ module.exports = async (env, options) => {
         filename: "commands.html",
         template: "./src/commands/commands.html",
         chunks: ["polyfill", "commands"]
-      })
+      }),
+      new CopyWebpackPlugin([
+        {
+          to: "assets",
+          from: "./assets"
+        }
+      ]),
+      new CopyWebpackPlugin([
+        {
+          to: "manifest.xml",
+          from: "./manifest.xml",
+          transform: (content) => content.toString().replace(/localhost:3000/g, "stak.github.io/excel-addin-table2json")
+        }
+      ])
     ],
     devServer: {
       headers: {
