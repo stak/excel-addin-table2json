@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
+  <Id>fac6176c-325b-4fed-8351-ecac2ebe357b</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>tak.im</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="table2json"/>
+  <Description DefaultValue="Excel add-in to make json string."/>
+  <IconUrl DefaultValue="https://stak.github.io/excel-addin-table2json/assets/json-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://stak.github.io/excel-addin-table2json/assets/json-80.png"/>
+  <SupportUrl DefaultValue="https://github.com/stak/excel-addin-table2json#readme"/>
+  <AppDomains>
+    <AppDomain>tak.im</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://stak.github.io/excel-addin-table2json/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <FunctionFile resid="Commands.Url"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabDeveloper">
+              <Group id="CommandsGroup">
+                <Label resid="CommandsGroup.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="JsonIcon.16x16"/>
+                  <bt:Image size="32" resid="JsonIcon.32x32"/>
+                  <bt:Image size="80" resid="JsonIcon.80x80"/>
+                </Icon>
+                <Control xsi:type="Button" id="MakeSheetButton">
+                  <Label resid="MakeSheetButton.Label"/>
+                  <Supertip>
+                    <Title resid="MakeSheetButton.Label"/>
+                    <Description resid="MakeSheetButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="JsonIcon.16x16"/>
+                    <bt:Image size="32" resid="JsonIcon.32x32"/>
+                    <bt:Image size="80" resid="JsonIcon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>makeJsonSheet</FunctionName>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="JsonIcon.16x16" DefaultValue="https://stak.github.io/excel-addin-table2json/assets/json-16.png"/>
+        <bt:Image id="JsonIcon.32x32" DefaultValue="https://stak.github.io/excel-addin-table2json/assets/json-32.png"/>
+        <bt:Image id="JsonIcon.80x80" DefaultValue="https://stak.github.io/excel-addin-table2json/assets/json-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Commands.Url" DefaultValue="https://stak.github.io/excel-addin-table2json/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://stak.github.io/excel-addin-table2json/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="CommandsGroup.Label" DefaultValue="JSON"/>
+        <bt:String id="MakeSheetButton.Label" DefaultValue="make sheet">
+          <bt:Override Locale="ja-jp" Value="シート作成" />
+        </bt:String>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="MakeSheetButton.Tooltip" DefaultValue="Click to make json sheet">
+          <bt:Override Locale="ja-jp" Value="JSON シートを作成します" />
+        </bt:String>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
